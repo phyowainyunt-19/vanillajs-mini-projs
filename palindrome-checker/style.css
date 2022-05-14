@@ -66,6 +66,7 @@ header p {
 }
 
 .info-text {
+  display: none; 
   font-size: 19px;
   text-align: center;
   margin-bottom: 1.1rem;
