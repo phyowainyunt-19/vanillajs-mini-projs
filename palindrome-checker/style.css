@@ -60,13 +60,20 @@ header p {
   border: none;
   margin-top: 1.25rem;
   font-size: 1rem;
+  color: #fff;
   border-radius: 5px;
   pointer-events: none;
   background: #aa57cc;
+  transition: opacity 0.5s ease;
+}
+
+.form button.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .info-text {
-  display: none; 
+  display: none;
   font-size: 19px;
   text-align: center;
   margin-bottom: 1.1rem;
