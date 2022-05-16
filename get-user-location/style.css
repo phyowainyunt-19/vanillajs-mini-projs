@@ -6,3 +6,23 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(#252930 50%, #5372f0 50%);
+}
+
+button {
+  font-size: 50px;
+  padding: 25px 46px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #5372f0;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
