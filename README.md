@@ -17,3 +17,8 @@ Vanilla javascript mini projects that I've practiced before.
 - Css
 - Jquery
 - Javascript
+
+## Notice
+
+🤩 => special 
+
