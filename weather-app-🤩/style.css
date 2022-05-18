@@ -109,3 +109,60 @@ header i {
   color: #fff;
   background-color: #43affc;
 }
+
+/* Weather Section */
+
+.wrapper .weather-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2rem 0 0;
+}
+
+.weather-section img {
+  max-width: 7.813rem;
+}
+
+.weather-section .temp {
+  display: flex;
+  font-size: 4.5rem;
+  font-weight: 500;
+}
+
+.weather-section .temp .number {
+  font-weight: 600;
+}
+
+.weather-section .temp .degree {
+  font-size: 40px;
+  margin: 10px 5px 0 0;
+  display: block;
+}
+
+.weather-section .location {
+  display: flex;
+  align-items: center;
+  font-size: 21px;
+  margin-bottom: 2rem;
+}
+
+.location i {
+  font-size: 22px;
+  margin-right: 10px;
+}
+
+.weather-section .bottom-details {
+  /* background: red; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bottom-details .column {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
