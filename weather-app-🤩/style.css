@@ -33,13 +33,25 @@ body {
 
 header i {
   cursor: pointer;
-  font-size: 1.8rem;
+  font-size: 0;
   margin-right: 8px;
 }
 
+/** For header active */
+
+.wrapper.active header i{
+  font-size: 30px;
+  margin-left: 5px;
+}
+
 .wrapper .input-section {
-  display: none;
+  /* display: none; */
   margin: 20px 25px 30px;
+}
+
+/** If wrapper active => input none */
+.wrapper.active .input-section {
+  display: none;
 }
 
 .input-section .info-text {
@@ -113,11 +125,16 @@ header i {
 /* Weather Section */
 
 .wrapper .weather-section {
-  display: flex;
+  margin: 2rem 0 0;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 2rem 0 0;
+}
+
+/** If wrapper active => weather display flex */
+.wrapper.active .weather-section {
+  display: flex;
 }
 
 .weather-section img {
@@ -157,12 +174,41 @@ header i {
   width: 100%;
   display: flex;
   align-items: center;
+  border-top: 1px solid #bfbfbf;
   justify-content: space-between;
 }
 
 .bottom-details .column {
   width: 100%;
   display: flex;
+  padding: 1rem 0;
   align-items: center;
   justify-content: center;
+}
+
+.column i {
+  color: #43affc;
+  font-size: 2.5rem;
+}
+
+.column.humidity {
+  border-left: 1px solid #bfbfbf;
+}
+
+.details .temp,
+.humidity span {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: -3px;
+}
+
+.details .temp .degree {
+  margin: 0;
+  font-size: 17px;
+  padding: 0 2px 0 1px;
+}
+
+.details p {
+  font-size: 14px;
+  margin-top: -6px;
 }
