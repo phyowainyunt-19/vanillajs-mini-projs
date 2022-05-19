@@ -39,7 +39,7 @@ header i {
 
 /** For header active */
 
-.wrapper.active header i{
+.wrapper.active header i {
   font-size: 30px;
   margin-left: 5px;
 }
@@ -65,6 +65,13 @@ header i {
 }
 
 .info-text.error {
+  display: block;
+  color: #a70d1d;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+.info-text.deny {
   display: block;
   color: #a70d1d;
   background: #f8d7da;
