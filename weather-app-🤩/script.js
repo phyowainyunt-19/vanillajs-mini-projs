@@ -6,7 +6,8 @@ const wrapper = document.querySelector(".wrapper"),
   inputSec = wrapper.querySelector(".input-section"),
   infoTxt = inputSec.querySelector(".info-text"),
   inputField = inputSec.querySelector("input"),
-  locationBtn = inputSec.querySelector("button");
+  locationBtn = inputSec.querySelector("button"),
+  wIcon = document.querySelector(".weather-section img");
 
 let api;
 
@@ -67,6 +68,22 @@ function WeatherDetails(info) {
     const country = info.sys.country;
     const { description, id } = info.weather[0];
     const { feels_like, humidity, temp } = info.main;
+
+    //* For weather icons according to id
+    let icon =
+      id == 800
+        ? (wIcon.src = "icons/clear.svg")
+        : id >= 200 && id <= 232
+        ? (wIcon.src = "icons/storm.svg")
+        : id >= 600 && id <= 622
+        ? (wIcon.src = "icons/snow.svg")
+        : id >= 701 && id <= 781
+        ? (wIcon.src = "icons/haze.svg")
+        : id >= 801 && id <= 804
+        ? (wIcon.src = "icons/snow.svg")
+        : (id >= 300 && id <= 321) || (id >= 500 && id <= 531)
+        ? (wIcon.src = "icons/rain.svg")
+        : "";
 
     //* Pass these values to a particular html element
     wrapper.querySelector(".temp .number").innerText = Math.floor(temp);
