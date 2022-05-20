@@ -8,6 +8,8 @@ const wrapper = document.querySelector(".wrapper"),
   inputField = inputSec.querySelector("input"),
   locationBtn = inputSec.querySelector("button");
 
+let api;
+
 //* For Enter button and validation
 inputField.addEventListener("keyup", (e) => {
   if (e.key == "Enter" && inputField.value != "") {
@@ -26,6 +28,9 @@ locationBtn.addEventListener("click", () => {
 //* Successfully fetch geolocation from user input
 function onSuccess(position) {
   let { latitude, longitude } = position.coords;
+  // console.log(latitude, longitude);
+  api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+  fetchData();
 }
 
 //! Error for geolocation
@@ -36,7 +41,12 @@ function onError(error) {
 
 //* Request API function
 function requestApi(city) {
-  let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
+  api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
+  fetchData();
+}
+
+//* Fetch Weather Data from Api
+function fetchData() {
   infoTxt.innerHTML = "Getting weather details...";
   infoTxt.classList.add("pending");
   //* getting api and parsing into js obj
@@ -48,5 +58,18 @@ function requestApi(city) {
 
 //* Weather Details function
 function WeatherDetails(info) {
-  console.log(info);
+  if (info.cod == "404") {
+    infoTxt.classList.replace("pending", "error");
+    infoTxt.innerHTML = `${inputField.value} is not a valid city name.`;
+  } else {
+    //* get required values from the info object
+    const city = info.name;
+    const country = info.sys.country;
+    const { description, id } = info.weather[0];
+    const { feels_like, humidity, temp } = info.main;
+
+    infoTxt.classList.remove("pending", "error");
+    wrapper.classList.add("active");
+    console.log(info);
+  }
 }
