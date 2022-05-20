@@ -7,7 +7,8 @@ const wrapper = document.querySelector(".wrapper"),
   infoTxt = inputSec.querySelector(".info-text"),
   inputField = inputSec.querySelector("input"),
   locationBtn = inputSec.querySelector("button"),
-  wIcon = document.querySelector(".weather-section img");
+  wIcon = wrapper.querySelector(".weather-section img"),
+  arrowBack = wrapper.querySelector("header i");
 
 let api;
 
@@ -93,7 +94,13 @@ function WeatherDetails(info) {
     wrapper.querySelector(".humidity span").innerText = `${humidity}%`;
 
     infoTxt.classList.remove("pending", "error");
+    infoTxt.innerText = "";
+    inputField.value = "";
     wrapper.classList.add("active");
     console.log(info);
   }
 }
+
+arrowBack.addEventListener("click", () => {
+  wrapper.classList.remove("active");
+});
