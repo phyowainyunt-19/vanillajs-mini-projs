@@ -29,7 +29,7 @@ locationBtn.addEventListener("click", () => {
 function onSuccess(position) {
   let { latitude, longitude } = position.coords;
   // console.log(latitude, longitude);
-  api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+  api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${key}`;
   fetchData();
 }
 
@@ -41,7 +41,7 @@ function onError(error) {
 
 //* Request API function
 function requestApi(city) {
-  api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
+  api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`;
   fetchData();
 }
 
@@ -67,6 +67,13 @@ function WeatherDetails(info) {
     const country = info.sys.country;
     const { description, id } = info.weather[0];
     const { feels_like, humidity, temp } = info.main;
+
+    //* Pass these values to a particular html element
+    wrapper.querySelector(".temp .number").innerText = Math.floor(temp);
+    wrapper.querySelector(".weather").innerText = description;
+    wrapper.querySelector(".location span").innerText = `${city} , ${country}`;
+    wrapper.querySelector(".temp .number-2").innerText = feels_like;
+    wrapper.querySelector(".humidity span").innerText = `${humidity}%`;
 
     infoTxt.classList.remove("pending", "error");
     wrapper.classList.add("active");
