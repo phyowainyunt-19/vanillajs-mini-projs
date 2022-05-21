@@ -27,6 +27,7 @@ locationBtn.addEventListener("click", () => {
     alert("Your browser does not support!");
   }
 });
+
 //* Successfully fetch geolocation from user input
 function onSuccess(position) {
   let { latitude, longitude } = position.coords;

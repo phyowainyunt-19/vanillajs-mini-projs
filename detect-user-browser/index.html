@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detect User Browser</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>Broswer : </h2>
+        <div class="logos">
+            <img class="chrome" src="icons/chrome.png" alt="Google Chrome">
+            <!-- <img src="img/brave.jpg" alt="Brave"> -->
+            <img class="edge" src="icons/edge.png" alt="Microsoft Edge">
+            <img class="opera" src="icons/opera.png" alt="Opera">
+            <img class="firefox" src="icons/firefox.png" alt="Mozilla Firefox">
+            <img class="safari" src="icons/safari.png" alt="Apple Safari">
+        </div>
+    </div>
+
+    <script>
+        let userAgent = navigator.userAgent;
+        let browser;
+
+        if (userAgent.match(/edg/i)) {
+            browser = "edge";
+        } else if (userAgent.match(/firefox|fxios/i)) {
+            browser = "firefox";
+        } else if (userAgent.match(/opr\//i)) {
+            browser = "opera";
+        } else if (userAgent.match(/chrome|chromium|crios/i)) {
+            browser = "chrome";
+        } else if (userAgent.match(/safari/i)) {
+            browser = "safari";
+        } else {
+            alert("Other browser");
+        }
+        const logo = document.querySelector(`.logos .${browser}`);
+        if (logo != '') logo.style.opacity = "1";
+    </script>
+</body>
+
+</html>
