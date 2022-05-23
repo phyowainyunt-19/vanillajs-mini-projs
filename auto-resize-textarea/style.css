@@ -38,6 +38,7 @@ body {
   font-size: 1rem;
   border-radius: 5px;
   border-color: #bfbfbf;
+  max-height: 330px;
 }
 
 /* If textarea is focused and valid */
