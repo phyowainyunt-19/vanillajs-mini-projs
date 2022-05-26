@@ -23,7 +23,7 @@
           </div>
           <span class="percent">90%</span>
         </div>
-        <div class="progress" style="--w:90;"></div>
+        <div class="progress" style="--w: 90"></div>
       </label>
       <!-- SECOND -->
       <label for="">
@@ -34,7 +34,7 @@
           </div>
           <span class="percent">60%</span>
         </div>
-        <div class="progress" style="--w:60;"></div>
+        <div class="progress" style="--w: 60"></div>
       </label>
       <!-- THIRD -->
       <label for="">
@@ -45,7 +45,7 @@
           </div>
           <span class="percent">80%</span>
         </div>
-        <div class="progress" style="--w:80;"></div>
+        <div class="progress" style="--w: 80"></div>
       </label>
       <!-- FOURTH -->
       <label for="">
@@ -56,7 +56,7 @@
           </div>
           <span class="percent">40%</span>
         </div>
-        <div class="progress" style="--w:40;"></div>
+        <div class="progress" style="--w: 40"></div>
       </label>
       <!-- FIFTH -->
       <label for="">
@@ -67,10 +67,29 @@
           </div>
           <span class="percent">70%</span>
         </div>
-        <div class="progress" style="--w:70;"></div>
+        <div class="progress" style="--w: 70"></div>
       </label>
     </div>
   </div>
+
+  <script>
+    const options = document.querySelectorAll("label");
+    for (let i = 0; i < options.length; i++) {
+      options[i].addEventListener("click", () => {
+        //check if is there any selected class ? 'remove'
+        for (let k = 0; k < options.length; k++) {
+          if (options[k].classList.contains("selected")) {
+            options[k].classList.remove("selected");
+          }
+        }
+        options[i].classList.add("selected");
+        // select all options and add selectall classname
+        for (let j = 0; j < options.length; j++) {
+          options[j].classList.add("selectall");
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>
